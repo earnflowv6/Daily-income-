@@ -1,390 +1,203 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hi">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Official Channel - Updates & Alerts</title>
+    <!-- Google Font & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
 
-<title>Products</title>
+        body {
+            background: linear-gradient(180deg, #10b981 0%, #059669 40%, #f3f4f6 40.1%, #f3f4f6 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 20px 15px;
+        }
 
-<style>
+        .container {
+            width: 100%;
+            max-width: 450px;
+            background: #ffffff;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            overflow: hidden;
+            text-align: center;
+            padding-bottom: 25px;
+        }
 
-*{
-    box-sizing:border-box;
-    margin:0;
-    padding:0;
-}
+        .header {
+            background: linear-gradient(135deg, #10b981, #047857);
+            padding: 35px 20px 25px;
+            color: #ffffff;
+        }
 
-body{
-    font-family:Arial,sans-serif;
-    background:#f4f4f4;
-    color:#111;
-    padding-bottom:75px;
-}
+        .logo-box {
+            width: 80px;
+            height: 80px;
+            background: #ffffff;
+            border-radius: 20px;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+            margin-bottom: 15px;
+        }
 
-.header{
-    height:75px;
-    background:linear-gradient(135deg,#3858d8,#4c6de8);
-    color:white;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    padding:0 18px;
-}
+        .logo-box i {
+            font-size: 42px;
+            color: #059669;
+        }
 
-.left{
-    display:flex;
-    align-items:center;
-    gap:18px;
-}
+        .header h1 {
+            font-size: 26px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            letter-spacing: 0.5px;
+        }
 
-.menu{
-    font-size:32px;
-}
+        .header p {
+            font-size: 14px;
+            opacity: 0.95;
+            line-height: 1.5;
+        }
 
-.reels{
-    font-family:Georgia,serif;
-    font-size:23px;
-    font-weight:bold;
-    font-style:italic;
-}
+        .content {
+            padding: 20px;
+        }
 
-.title{
-    font-size:30px;
-    font-weight:bold;
-}
+        .notice-box {
+            background: #ecfdf5;
+            border: 1px dashed #059669;
+            border-radius: 12px;
+            padding: 12px;
+            font-size: 13px;
+            color: #065f46;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
 
-.icons{
-    font-size:25px;
-    display:flex;
-    gap:15px;
-}
+        .btn-join {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background: #25d366;
+            color: #ffffff;
+            text-decoration: none;
+            padding: 16px 20px;
+            font-size: 18px;
+            font-weight: 700;
+            border-radius: 50px;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+            transition: all 0.3s ease;
+            animation: pulse 1.8s infinite;
+        }
 
-/* TABS */
+        .btn-join:hover {
+            background: #20ba5a;
+            transform: translateY(-2px);
+        }
 
-.tabs{
-    background:white;
-    display:grid;
-    grid-template-columns:1fr 1fr 1fr;
-    padding:15px 8px;
-    gap:5px;
-    box-shadow:0 2px 8px #ddd;
-}
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.03); }
+            100% { transform: scale(1); }
+        }
 
-.tab{
-    text-align:center;
-    padding:15px 5px;
-    font-size:16px;
-    color:#555;
-    border-radius:16px;
-}
+        .features {
+            margin-top: 25px;
+            border: 2px solid #e5e7eb;
+            border-radius: 16px;
+            padding: 18px;
+            text-align: left;
+            background: #fafafa;
+        }
 
-.tab.active{
-    background:#4161db;
-    color:white;
-    font-weight:bold;
-}
+        .features h3 {
+            font-size: 16px;
+            color: #1f2937;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
 
-/* PRODUCT */
+        .features ul {
+            list-style: none;
+        }
 
-.product{
-    background:white;
-    margin:15px 0;
-    border-radius:18px;
-    overflow:hidden;
-    box-shadow:0 2px 8px #ddd;
-}
+        .features li {
+            font-size: 13px;
+            color: #4b5563;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
 
-.product-head{
-    background:#4161db;
-    color:white;
-    width:58%;
-    padding:14px 22px;
-    font-size:21px;
-    font-weight:bold;
-    border-radius:0 0 55px 0;
-}
+        .features li i {
+            color: #10b981;
+            font-size: 15px;
+        }
 
-.product-body{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    padding:18px;
-}
-
-.details{
-    width:55%;
-}
-
-.details p{
-    font-size:18px;
-    font-weight:bold;
-    margin:10px 0;
-}
-
-.price{
-    color:#12a84d;
-    font-size:24px !important;
-}
-
-.image{
-    width:40%;
-    text-align:center;
-}
-
-.image img{
-    width:125px;
-    height:125px;
-    object-fit:contain;
-}
-
-.buy{
-    display:block;
-    background:#1460e8;
-    color:white;
-    text-decoration:none;
-    text-align:center;
-    padding:14px 10px;
-    border-radius:35px;
-    font-size:18px;
-    font-weight:bold;
-    margin-top:12px;
-}
-
-/* CHANNEL */
-
-.channel{
-    margin:18px 12px;
-    background:#20c95b;
-    padding:16px;
-    border-radius:35px;
-    text-align:center;
-}
-
-.channel a{
-    color:white;
-    text-decoration:none;
-    font-size:19px;
-    font-weight:bold;
-}
-
-/* BOTTOM */
-
-.bottom{
-    position:fixed;
-    bottom:0;
-    left:0;
-    width:100%;
-    height:70px;
-    background:white;
-    display:grid;
-    grid-template-columns:repeat(5,1fr);
-    box-shadow:0 -2px 10px #ccc;
-    z-index:100;
-}
-
-.bottom a{
-    text-decoration:none;
-    color:#555;
-    text-align:center;
-    padding-top:8px;
-    font-size:12px;
-}
-
-.bottom span{
-    display:block;
-    font-size:27px;
-    margin-bottom:3px;
-}
-
-.bottom .active{
-    color:#3155c9;
-}
-
-/* MOBILE */
-
-@media(max-width:400px){
-
-    .title{
-        font-size:26px;
-    }
-
-    .icons{
-        font-size:20px;
-        gap:8px;
-    }
-
-    .product-head{
-        font-size:19px;
-    }
-
-    .details p{
-        font-size:16px;
-    }
-
-    .price{
-        font-size:22px !important;
-    }
-
-    .image img{
-        width:105px;
-        height:105px;
-    }
-
-}
-
-</style>
+        .footer {
+            font-size: 11px;
+            color: #9ca3af;
+            margin-top: 15px;
+        }
+    </style>
 </head>
-
 <body>
 
-
-<!-- HEADER -->
-
-<div class="header">
-
-    <div class="left">
-        <div class="menu">☰</div>
-
-        <div class="reels">
-            Reels
+    <div class="container">
+        <!-- Top Section -->
+        <div class="header">
+            <div class="logo-box">
+                <i class="fa-solid fa-bell"></i>
+            </div>
+            <h1>Daily Updates Hub</h1>
+            <p>रोज़ाना नए अपडेट्स और जानकारी पाने के लिए नीचे दिए गए बटन से चैनल जॉइन करें!</p>
         </div>
-    </div>
 
-    <div class="title">
-        Products
-    </div>
+        <!-- Middle Content -->
+        <div class="content">
+            <div class="notice-box">
+                📢 सभी जरूरी लिंक्स और अपडेट्स केवल WhatsApp चैनल पर मिलेंगे!
+            </div>
 
-    <div class="icons">
-        🔍
-        ⋯
-    </div>
-
-</div>
-
-
-<!-- TABS -->
-
-<div class="tabs">
-
-    <div class="tab active">
-        Normal Plans
-    </div>
-
-    <div class="tab">
-        Offers<br>Plans
-    </div>
-
-    <div class="tab">
-        Premium<br>Plans
-    </div>
-
-</div>
-
-
-<!-- PRODUCT 1 -->
-
-<div class="product">
-
-    <div class="product-head">
-        Featured I
-    </div>
-
-    <div class="product-body">
-
-        <div class="details">
-
-            <p>
-                Price
-                <span class="price">₹99</span>
-            </p>
-
-            <p>
-                Offer
-                <span>Special</span>
-            </p>
-
-            <p>
-                Availability
-                <span>Today</span>
-            </p>
-
-            <a href="#channel" class="buy">
-                View Now
+            <!-- CTA Button with your WhatsApp Link -->
+            <a href="https://whatsapp.com/channel/0029VbDd59D9sBI0NUxUlM08" class="btn-join" target="_blank">
+                <i class="fa-brands fa-whatsapp fa-xl"></i> Join WhatsApp Channel
             </a>
 
+            <!-- Features Box -->
+            <div class="features">
+                <h3><i class="fa-solid fa-circle-check" style="color: #10b981;"></i> Channel Benefits</h3>
+                <ul>
+                    <li><i class="fa-solid fa-check"></i> 100% Verified & Regular Updates</li>
+                    <li><i class="fa-solid fa-check"></i> Instant Notifications & Real-Time Alerts</li>
+                    <li><i class="fa-solid fa-check"></i> Direct Access to Important Resources</li>
+                    <li><i class="fa-solid fa-check"></i> Active Support & Guidance</li>
+                </ul>
+            </div>
+
+            <div class="footer">
+                Privacy Protected • Click to join directly
+            </div>
         </div>
-
-        <div class="image">
-
-            <img
-            src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=400&q=80"
-            alt="Featured Product">
-
-        </div>
-
     </div>
 
-</div>
-
-
-<!-- PRODUCT 2 -->
-
-<div class="product">
-
-    <div class="product-head">
-        Featured II
-    </div>
-
-    <div class="product-body">
-
-        <div class="details">
-
-            <p>
-                Price
-                <span class="price">₹199</span>
-            </p>
-
-            <p>
-                Offer
-                <span>Popular</span>
-            </p>
-
-            <p>
-                Availability
-                <span>Today</span>
-            </p>
-
-            <a href="#channel" class="buy">
-                View Now
-            </a>
-
-        </div>
-
-        <div class="image">
-
-            <img
-            src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=400&q=80"
-            alt="Featured Product">
-
-        </div>
-
-    </div>
-
-</div>
-
-
-<!-- PRODUCT 3 -->
-
-<div class="product">
-
-    <div class="product-head">
-        Featured III
-    </div>
-
-    <div class="product-body">
-
-        <div class="details">
-
-            <p>
-                Price
-                <span class="price">₹299</
+</body>
+    </html>
+    
