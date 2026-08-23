@@ -3,190 +3,388 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Daily Deals</title>
+
+<title>Products</title>
 
 <style>
+
 *{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
 }
 
 body{
-  font-family:Arial,Helvetica,sans-serif;
-  background:#f3f5f8;
-  color:#172b4d;
+    font-family:Arial,sans-serif;
+    background:#f4f4f4;
+    color:#111;
+    padding-bottom:75px;
 }
 
-a{
-  text-decoration:none;
-  color:inherit;
+.header{
+    height:75px;
+    background:linear-gradient(135deg,#3858d8,#4c6de8);
+    color:white;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 18px;
 }
 
-.app{
-  max-width:720px;
-  min-height:100vh;
-  margin:auto;
-  padding-bottom:82px;
-}
-
-/* HEADER */
-.top{
-  background:linear-gradient(135deg,#183d83,#4168df);
-  color:white;
-  padding:18px;
-  position:sticky;
-  top:0;
-  z-index:10;
-}
-
-.topline{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-}
-
-.logo{
-  font-size:25px;
-  font-weight:800;
-}
-
-.sub{
-  font-size:12px;
-  opacity:.85;
-  margin-top:4px;
+.left{
+    display:flex;
+    align-items:center;
+    gap:18px;
 }
 
 .menu{
-  font-size:28px;
+    font-size:32px;
 }
 
-/* BANNER */
-.banner{
-  margin:14px;
-  border-radius:18px;
-  background:linear-gradient(135deg,#112b61,#315fd2);
-  color:white;
-  padding:25px 20px;
-  box-shadow:0 8px 22px rgba(25,61,131,.18);
+.reels{
+    font-family:Georgia,serif;
+    font-size:23px;
+    font-weight:bold;
+    font-style:italic;
 }
 
-.pill{
-  display:inline-block;
-  background:#ffffff22;
-  border:1px solid #ffffff55;
-  border-radius:30px;
-  padding:7px 12px;
-  font-size:12px;
-  margin-bottom:10px;
+.title{
+    font-size:30px;
+    font-weight:bold;
 }
 
-.banner h1{
-  font-size:27px;
-  line-height:1.15;
-  margin-bottom:8px;
-}
-
-.banner p{
-  font-size:14px;
-  line-height:1.5;
-}
-
-/* QUICK MENU */
-.quick{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:8px;
-  background:white;
-  margin:0 14px 16px;
-  padding:14px 8px;
-  border-radius:18px;
-  box-shadow:0 4px 15px #0000000b;
-}
-
-.quick a{
-  text-align:center;
-  font-size:12px;
-  color:#27457d;
-}
-
-.ico{
-  font-size:27px;
-  display:block;
-  margin-bottom:6px;
+.icons{
+    font-size:25px;
+    display:flex;
+    gap:15px;
 }
 
 /* TABS */
+
 .tabs{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  background:white;
-  margin:0 14px 16px;
-  border-radius:30px;
-  padding:4px;
-  box-shadow:0 4px 15px #0000000b;
+    background:white;
+    display:grid;
+    grid-template-columns:1fr 1fr 1fr;
+    padding:15px 8px;
+    gap:5px;
+    box-shadow:0 2px 8px #ddd;
 }
 
 .tab{
-  padding:13px;
-  text-align:center;
-  border-radius:26px;
-  font-weight:700;
-  color:#777;
+    text-align:center;
+    padding:15px 5px;
+    font-size:16px;
+    color:#555;
+    border-radius:16px;
 }
 
 .tab.active{
-  background:#21438b;
-  color:white;
+    background:#4161db;
+    color:white;
+    font-weight:bold;
 }
 
-/* PRODUCT CARDS */
-.grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:14px;
-  margin:0 14px;
+/* PRODUCT */
+
+.product{
+    background:white;
+    margin:15px 0;
+    border-radius:18px;
+    overflow:hidden;
+    box-shadow:0 2px 8px #ddd;
 }
 
-.card{
-  background:white;
-  border-radius:18px;
-  padding:12px;
-  box-shadow:0 5px 18px #0000000b;
+.product-head{
+    background:#4161db;
+    color:white;
+    width:58%;
+    padding:14px 22px;
+    font-size:21px;
+    font-weight:bold;
+    border-radius:0 0 55px 0;
 }
 
-.pic{
-  height:145px;
-  border-radius:13px;
-  background:linear-gradient(135deg,#eaf0ff,#fff);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:70px;
+.product-body{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:18px;
 }
 
-.card h3{
-  font-size:15px;
-  color:#c62828;
-  margin:12px 2px 10px;
+.details{
+    width:55%;
 }
 
-.info{
-  font-size:13px;
-  line-height:1.9;
-  color:#222;
+.details p{
+    font-size:18px;
+    font-weight:bold;
+    margin:10px 0;
 }
 
-.info b{
-  float:right;
-  color:#173d78;
+.price{
+    color:#12a84d;
+    font-size:24px !important;
 }
 
-.btn{
-  display:block;
-  background:#173d83;
-  color:white;
-  text-align:center;
-  padding:12px;
-  border-radius:11px;
-  margin
+.image{
+    width:40%;
+    text-align:center;
+}
+
+.image img{
+    width:125px;
+    height:125px;
+    object-fit:contain;
+}
+
+.buy{
+    display:block;
+    background:#1460e8;
+    color:white;
+    text-decoration:none;
+    text-align:center;
+    padding:14px 10px;
+    border-radius:35px;
+    font-size:18px;
+    font-weight:bold;
+    margin-top:12px;
+}
+
+/* CHANNEL */
+
+.channel{
+    margin:18px 12px;
+    background:#20c95b;
+    padding:16px;
+    border-radius:35px;
+    text-align:center;
+}
+
+.channel a{
+    color:white;
+    text-decoration:none;
+    font-size:19px;
+    font-weight:bold;
+}
+
+/* BOTTOM */
+
+.bottom{
+    position:fixed;
+    bottom:0;
+    left:0;
+    width:100%;
+    height:70px;
+    background:white;
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    box-shadow:0 -2px 10px #ccc;
+    z-index:100;
+}
+
+.bottom a{
+    text-decoration:none;
+    color:#555;
+    text-align:center;
+    padding-top:8px;
+    font-size:12px;
+}
+
+.bottom span{
+    display:block;
+    font-size:27px;
+    margin-bottom:3px;
+}
+
+.bottom .active{
+    color:#3155c9;
+}
+
+/* MOBILE */
+
+@media(max-width:400px){
+
+    .title{
+        font-size:26px;
+    }
+
+    .icons{
+        font-size:20px;
+        gap:8px;
+    }
+
+    .product-head{
+        font-size:19px;
+    }
+
+    .details p{
+        font-size:16px;
+    }
+
+    .price{
+        font-size:22px !important;
+    }
+
+    .image img{
+        width:105px;
+        height:105px;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+
+<!-- HEADER -->
+
+<div class="header">
+
+    <div class="left">
+        <div class="menu">☰</div>
+
+        <div class="reels">
+            Reels
+        </div>
+    </div>
+
+    <div class="title">
+        Products
+    </div>
+
+    <div class="icons">
+        🔍
+        ⋯
+    </div>
+
+</div>
+
+
+<!-- TABS -->
+
+<div class="tabs">
+
+    <div class="tab active">
+        Normal Plans
+    </div>
+
+    <div class="tab">
+        Offers<br>Plans
+    </div>
+
+    <div class="tab">
+        Premium<br>Plans
+    </div>
+
+</div>
+
+
+<!-- PRODUCT 1 -->
+
+<div class="product">
+
+    <div class="product-head">
+        Featured I
+    </div>
+
+    <div class="product-body">
+
+        <div class="details">
+
+            <p>
+                Price
+                <span class="price">₹99</span>
+            </p>
+
+            <p>
+                Offer
+                <span>Special</span>
+            </p>
+
+            <p>
+                Availability
+                <span>Today</span>
+            </p>
+
+            <a href="#channel" class="buy">
+                View Now
+            </a>
+
+        </div>
+
+        <div class="image">
+
+            <img
+            src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=400&q=80"
+            alt="Featured Product">
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- PRODUCT 2 -->
+
+<div class="product">
+
+    <div class="product-head">
+        Featured II
+    </div>
+
+    <div class="product-body">
+
+        <div class="details">
+
+            <p>
+                Price
+                <span class="price">₹199</span>
+            </p>
+
+            <p>
+                Offer
+                <span>Popular</span>
+            </p>
+
+            <p>
+                Availability
+                <span>Today</span>
+            </p>
+
+            <a href="#channel" class="buy">
+                View Now
+            </a>
+
+        </div>
+
+        <div class="image">
+
+            <img
+            src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=400&q=80"
+            alt="Featured Product">
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- PRODUCT 3 -->
+
+<div class="product">
+
+    <div class="product-head">
+        Featured III
+    </div>
+
+    <div class="product-body">
+
+        <div class="details">
+
+            <p>
+                Price
+                <span class="price">₹299</
